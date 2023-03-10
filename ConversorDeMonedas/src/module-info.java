@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author RERS
- *
- */
-module ConversorDeMonedas {
-}

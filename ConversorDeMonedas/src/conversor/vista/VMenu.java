@@ -4,6 +4,9 @@
  */
 package conversor.vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author RERS
@@ -15,6 +18,9 @@ public class VMenu extends javax.swing.JFrame {
      */
     public VMenu() {
         initComponents();
+        this.setTitle("CONVERSOR MULTIPLE");
+        Image icono = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/icono.png"));
+        this.setIconImage(icono);
     }
 
     /**
@@ -27,22 +33,41 @@ public class VMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        bntConvertirMoneda = new javax.swing.JButton();
         btnConvertirTemperatura = new javax.swing.JButton();
+        bntConvertirMoneda = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bntConvertirMoneda.setText("Convertir Moneda");
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+
+        btnConvertirTemperatura.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        btnConvertirTemperatura.setText("Convertir Temperatura");
+        btnConvertirTemperatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConvertirTemperaturaActionPerformed(evt);
+            }
+        });
+
+        bntConvertirMoneda.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        bntConvertirMoneda.setText("Convertir Divisa");
         bntConvertirMoneda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntConvertirMonedaActionPerformed(evt);
             }
         });
 
-        btnConvertirTemperatura.setText("Convertir Temperatura");
-        btnConvertirTemperatura.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
+        jLabel1.setText("Elija una opción para convertir");
+
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Cerrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConvertirTemperaturaActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -51,20 +76,33 @@ public class VMenu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
-                .addComponent(btnConvertirTemperatura)
-                .addGap(44, 44, 44)
-                .addComponent(bntConvertirMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
+                .addGap(71, 71, 71)
+                .addComponent(btnConvertirTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(bntConvertirMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(130, 130, 130))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(140, 140, 140)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(101, 101, 101)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bntConvertirMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConvertirTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                    .addComponent(btnConvertirTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bntConvertirMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -88,6 +126,10 @@ public class VMenu extends javax.swing.JFrame {
     private void btnConvertirTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirTemperaturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConvertirTemperaturaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ManejadorPantallas.cerrarPantallaMenu();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +169,8 @@ public class VMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntConvertirMoneda;
     private javax.swing.JButton btnConvertirTemperatura;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

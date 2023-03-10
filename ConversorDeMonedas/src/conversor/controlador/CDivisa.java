@@ -6,8 +6,21 @@ public class CDivisa {
 
     public static String msj(double valor, String divisa) {
         DecimalFormat df = new DecimalFormat("#,###.00");
-        String txt =df.format(valor );
-        return txt + "  " + divisa;
+        String txt = df.format(valor);
+        return txt + " " + divisa;
+
+    }
+
+    public static String msjF(double valor, String divisa) {
+        DecimalFormat df = new DecimalFormat("#,###.00");
+        if (valor < 1) {
+            DecimalFormat df2 = new DecimalFormat("#,##0.00000");
+            String txt = df2.format(valor);
+            return txt + " " + divisa;
+        } else {
+            String txt = df.format(valor);
+            return txt + " " + divisa;
+        }
     }
 
     public static Double convertir(double valor, String divisa, String divisaFinal) {
@@ -162,32 +175,4 @@ public class CDivisa {
         return resultado;
     }
 
-    /* Funcionando
-    public static Double convertir(double valor, String divisa, String divisaFinal, double resultado) {
-
-        switch (divisa) {
-            case "COP":
-                if (divisaFinal.equals("EUR")) {
-                    resultado = valor * 0.00020;
-                    // Si la divisa de destino es EUR (euros), se multiplica el valor en pesos colombianos por la tasa de cambio aproximada de COP a EUR.
-                } else if (divisaFinal.equals("USD")) {
-                    resultado = valor * 0.00021;
-                } else if (divisaFinal.equals("LIBRA")) {
-                    resultado = valor * 0.00018;
-                } else if (divisaFinal.equals("YEN")) {
-                    resultado = valor * 0.029;
-                } else if (divisaFinal.equals("CHF")) {
-                    resultado = valor * 0.00020;
-                } else {
-                    resultado = valor;
-                    // Si la divisa de destino no se encuentra en la lista de opciones, se devuelve el valor original sin cambios.
-                }
-                break;
-                
-        }
-
-        return resultado;
-        // Se devuelve el resultado de la conversión.
-    }
-     */
 }
