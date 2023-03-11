@@ -141,10 +141,11 @@ public class VConMoneda extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbDivisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbDivisa2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbDivisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbDivisa2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -166,6 +167,7 @@ public class VConMoneda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //metodo para realizar el cambio entre combos
     public void cambio() {
         int a = cmbDivisa1.getSelectedIndex();
         cmbDivisa1.setSelectedIndex(cmbDivisa2.getSelectedIndex());
@@ -182,7 +184,6 @@ public class VConMoneda extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No se aceptan valores negativos");
             } else {
                 double resultado = CDivisa.convertir(valor, cmbDivisa1.getSelectedItem().toString(), cmbDivisa2.getSelectedItem().toString());
-
                 lblResultado.setText(CDivisa.msj(valor, cmbDivisa1.getSelectedItem().toString()) + "  Es aproximadamente  " + CDivisa.msjF(resultado, cmbDivisa2.getSelectedItem().toString()));
             }
         } catch (NumberFormatException e) {

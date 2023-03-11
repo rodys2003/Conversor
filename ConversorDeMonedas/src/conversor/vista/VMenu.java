@@ -124,7 +124,7 @@ public class VMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bntConvertirMonedaActionPerformed
 
     private void btnConvertirTemperaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirTemperaturaActionPerformed
-        // TODO add your handling code here:
+        ManejadorPantallas.abrirPantallaTemperatura();
     }//GEN-LAST:event_btnConvertirTemperaturaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
