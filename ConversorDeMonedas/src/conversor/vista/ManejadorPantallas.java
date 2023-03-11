@@ -1,5 +1,7 @@
 package conversor.vista;
 
+import javax.swing.JOptionPane;
+
 public class ManejadorPantallas {
 
     private static VConMoneda pantallaMoneda;
@@ -14,6 +16,7 @@ public class ManejadorPantallas {
     public static void cerrarPantallaMenu() {
         pantallaMenu.setVisible(false);
         pantallaMenu = null;
+        JOptionPane.showMessageDialog(null, "GACIAS, TEN UN BONITO DIA");
     }
    
     public static void abrirPantallaMoneda(){
